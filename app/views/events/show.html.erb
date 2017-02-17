@@ -1,0 +1,23 @@
+<h1><%= @event.name %></h1>
+<p>
+  Event description: <%= @event.description %>
+</p>
+<p> 
+  Event Location: <%= @event.location %>
+</p>
+<p>
+  Event Date/Time: <%= @event.time %>
+</p>
+<p>
+  This Event was created <%= time_ago_in_words(@event.created_at) %> ago.
+</p>
+<p>
+Attendees: 
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= link_to "#{attendee.name}", user_path(attendee) %></li>
+  <% end %>
+</ul>
+</p>
+
+

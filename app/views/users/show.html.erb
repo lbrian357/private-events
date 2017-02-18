@@ -15,25 +15,25 @@
 <% end %>
 
 <% if @upcoming_events.any? %>
-  <h3><%= @user.name %> is attending</h3>
+  <h3><%= @user.name %> is going to attend:</h3>
   <ul> 
     <% @upcoming_events.each do |event| %>
       <li><%= link_to "#{event.name}", event %></li>
     <% end %>
   </ul>
 <% else %>
-  <h3><%= @user.name %> isn't attending any Events</h3>
+  <h3><%= @user.name %> isn't going to any Events</h3>
 <% end %>
 
 <% if @previous_events.any? %>
-  <h3><%= @user.name %> has attended</h3>
+  <h3><%= @user.name %> has attended:</h3>
   <ul>
     <% @previous_events.each do |event| %>
       <li><%= link_to "#{event.name}", event %></li>
     <% end %>
   </ul>
 <% else %>
-  <h3><%= @user.name %> hasn't attended any Events yet!</h3>
+  <h3><%= @user.name %> hasn't previously attended any Events yet.</h3>
 <% end %>
 
 

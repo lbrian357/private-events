@@ -1,16 +1,30 @@
 <h1><%= @event.name %></h1>
+
 <p>
   Event description: <%= @event.description %>
 </p>
+
 <p> 
   Event Location: <%= @event.location %>
 </p>
+
 <p>
   Event Date/Time: <%= @event.time %>
 </p>
+
 <p>
   This Event was created <%= time_ago_in_words(@event.created_at) %> ago.
 </p>
+
+<p>
+  <%= form_for @attendanceship, url: attendanceships_path  do |f| %>
+    <%= hidden_field_tag "event_id", "#{@event.id}" %>
+    <%= f.submit 'Attend This Event' %>
+  <% end %>
+</p>
+
+    
+
 <p>
 Attendees: 
 <ul>

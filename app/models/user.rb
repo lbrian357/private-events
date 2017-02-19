@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :attendanceships#, foreign_key: 'user_id'
   has_many :attended_events, through: :attendanceships, source: :attended_event
+  has_many :invitations
+  has_many :invited_events, through: :invitations, source: :invited_event
 
   validates :email, presence: true,
                     uniqueness: true

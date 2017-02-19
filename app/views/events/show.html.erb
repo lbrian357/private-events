@@ -1,19 +1,28 @@
 <h1><%= @event.name %></h1>
 
 <p>
-  Event description: <%= @event.description %>
+  <% if current_user == @event.creator %>
+    <%= form_for @invitation, url: invitations_path do |f| %>
+      <%= f.label :user_name %>
+      <%= f.text_field :user_name %>
+
+      <%= hidden_field_tag "event_id", "#{@event.id}" %>
+      <%= f.submit 'Invite this user' %>
+    <% end %>
+  <% end %>
 </p>
 
-<p> 
-  Event Location: <%= @event.location %>
-</p>
+<h3>Event description</h3> 
+<p><%= @event.description %></p>
+
+<h3>Event Location</h3>
+<p><%= @event.location %></p>
+
+<h3>Event Date/Time</h3>
+<p><%= @event.time %></p>
 
 <p>
-  Event Date/Time: <%= @event.time %>
-</p>
-
-<p>
-  This Event was created <%= time_ago_in_words(@event.created_at) %> ago.
+  This Event was created <%= time_ago_in_words(@event.created_at) %> ago by <%= @event.creator.name %>
 </p>
 
 <p>
@@ -22,6 +31,7 @@
     <%= f.submit 'Attend This Event' %>
   <% end %>
 </p>
+
 
     
 

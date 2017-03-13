@@ -7,7 +7,7 @@
       <%= f.text_field :user_name %>
 
       <%= hidden_field_tag "event_id", "#{@event.id}" %>
-      <%= f.submit 'Invite this user' %>
+      <%= f.submit 'Invite this user', class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </p>
@@ -28,7 +28,7 @@
 <p>
   <%= form_for @attendanceship, url: attendanceships_path  do |f| %>
     <%= hidden_field_tag "event_id", "#{@event.id}" %>
-    <%= f.submit 'Attend This Event' %>
+    <%= f.submit 'Attend This Event', class: "btn btn-primary" %>
   <% end %>
 </p>
 

@@ -11,9 +11,13 @@
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |message_type, message| %>
+      <br>
       <%= content_tag(:p, content_tag(:em, "INFO: #{message}")) %>
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
